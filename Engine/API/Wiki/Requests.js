@@ -8,5 +8,16 @@ Rune.Wiki = {
         }, function () {
 
         });
+    },
+
+    edit: function ()
+    {
+        API.request('Rune.Wiki.Edit', {
+
+        }, function (data) {
+            $('#page').html(data.render);
+        }, function () {
+
+        });
     }
 }

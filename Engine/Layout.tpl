@@ -31,6 +31,7 @@
             <?php else: ?>
                 <!--<a href="javascript:void(0)" class="butn" onclick="Rune.Security.Password.show();">Login</a>-->
             <?php endif; ?>
+            <a href="javascript:void(0)" class="butn" onclick="Rune.Wiki.edit();">Edit</a>
         </div>
         <div id="page">
             <script>
