@@ -14,5 +14,13 @@ use Liloi\Tools\Entity as AbstractEntity;
  */
 class Entity extends AbstractEntity
 {
-
+    /**
+     * Gets quest key.
+     *
+     * @return string
+     */
+    public function getKey(): string
+    {
+        return $this->getField('key_wiki');
+    }
 }
