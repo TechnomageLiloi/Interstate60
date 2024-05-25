@@ -11,12 +11,12 @@ class Method extends SuperMethod
     public static function execute(): Response
     {
         $URL = $_SERVER['REQUEST_URI'];
-//        $keyAtom = WikiManager::URLtoATOM($URL);
-//        $collection = WikiManager::get($keyAtom);
+        $keyAtom = WikiManager::URLToKey($URL);
+        $entity = WikiManager::load($keyAtom);
 
         $response = new Response();
         $response->set('render', static::render(__DIR__ . '/Template.tpl', [
-
+            'entity' => $entity
         ]));
         return $response;
     }

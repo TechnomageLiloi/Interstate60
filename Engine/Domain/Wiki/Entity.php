@@ -23,4 +23,14 @@ class Entity extends AbstractEntity
     {
         return $this->getField('key_wiki');
     }
+
+    /**
+     * Stylo parse of article.
+     *
+     * @return string
+     */
+    public function parseArticle(): string
+    {
+        return Parser::parseString($this->getArticle());
+    }
 }
