@@ -31,7 +31,12 @@
             <?php else: ?>
                 <!--<a href="javascript:void(0)" class="butn" onclick="Rune.Security.Password.show();">Login</a>-->
             <?php endif; ?>
-            <a href="javascript:void(0)" class="butn" onclick="Rune.Wiki.edit();">Edit</a>
+
+            <?php if(file_exists(ROOT_DIR . '/Admin/index.php')): ?>
+                <a href="/Admin" class="butn">Admin</a>
+            <?php endif; ?>
+
+            <a href="javascript:void(0)" class="butn" onclick="Rune.Wiki.edit();">Edit Wiki</a>
         </div>
         <div id="page">
             <script>
