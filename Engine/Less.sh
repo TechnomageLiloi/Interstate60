@@ -2,4 +2,4 @@
 
 lessc ./Style.less ./Style.css
 lessc ./API/Style.less ./API/Style.css
-lessc ./API/Atoms/Show/Style.less ./API/Atoms/Show/Style.css
+lessc ./API/Wiki/Show/Style.less ./API/Wiki/Show/Style.css
