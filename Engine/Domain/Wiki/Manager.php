@@ -22,7 +22,7 @@ class Manager extends DomainManager
 
         $row = [
             'key_wiki' => $keyWiki,
-            'title' => 'Enter the title',
+            'title' => $keyWiki,
             'article' => 'Enter the article'
         ];
 

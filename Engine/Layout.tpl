@@ -36,6 +36,7 @@
                 <a href="/Admin" class="butn">Admin</a>
             <?php endif; ?>
 
+            <a href="/diary/<?php echo date('Y/W/w');?>" class="butn">Today</a>
             <a href="javascript:void(0)" class="butn" onclick="Rune.Wiki.edit();">Edit Wiki</a>
         </div>
         <div id="page">
