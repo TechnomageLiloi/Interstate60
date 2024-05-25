@@ -33,6 +33,7 @@ class Tree
 
             $manager->add(new Method('Rune.Wiki.Show', '\Liloi\Rune\API\Wiki\Show\Method::execute'));
             $manager->add(new Method('Rune.Wiki.Edit', '\Liloi\Rune\API\Wiki\Edit\Method::execute'));
+            $manager->add(new Method('Rune.Wiki.Save', '\Liloi\Rune\API\Wiki\Save\Method::execute'));
 
             self::$instance = new self($manager);
         }
