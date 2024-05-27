@@ -22,7 +22,7 @@
     <body>
         <div id="head">
             <?php if(file_exists(ROOT_DIR . '/Admin/index.php')): ?>
-                <a href="/Admin" class="butn">Admin</a>
+                <a href="/Admin" class="butn" target="_blank">Admin</a>
             <?php endif; ?>
 
             <a href="/diary/<?php echo date('Y/W/N', strtotime('-1 day'));?>" class="butn">Yesterday</a>
