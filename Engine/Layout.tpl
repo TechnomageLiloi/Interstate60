@@ -25,6 +25,7 @@
                 <a href="/Admin" class="butn" target="_blank">Admin</a>
             <?php endif; ?>
 
+            <a href="/links" class="butn">Links</a>
             <a href="/diary/<?php echo date('Y/W/N', strtotime('-1 day'));?>" class="butn">Yesterday</a>
             <a href="/diary/<?php echo date('Y/W/N');?>" class="butn">Today</a>
             <a href="javascript:void(0)" class="butn" onclick="Rune.Wiki.edit();">Edit Wiki</a>
