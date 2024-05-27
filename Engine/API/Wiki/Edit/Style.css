@@ -12,3 +12,6 @@
 #wiki-edit table textarea {
   width: 100%;
 }
+#wiki-edit table textarea {
+  height: 400px;
+}
