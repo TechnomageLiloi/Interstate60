@@ -1,5 +1,5 @@
 {
-    "name": "technomage-liloi/rune",
+    "name": "technomage-liloi/interstate-60",
     "keywords": [
     ],
     "minimum-stability": "dev",
@@ -20,7 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Liloi\\Rune\\": ["Engine", "Tests"]
+            "Liloi\\I60\\": ["Engine", "Tests"]
         }
     }
 }

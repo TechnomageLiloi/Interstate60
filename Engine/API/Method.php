@@ -1,12 +1,10 @@
 <?php
 
-namespace Liloi\Rune\API;
+namespace Liloi\I60\API;
 
 use Liloi\Config\Pool;
 use Liloi\Judex\Assert;
 use Liloi\API\Response;
-use Liloi\Rune\Security;
-use Liloi\Rune\Exceptions\AccessException;
 
 abstract class Method
 {
@@ -96,30 +94,5 @@ abstract class Method
     public static function setConfig(Pool $config): void
     {
         static::$config = $config;
-    }
-
-    /**
-     * Get access.
-     *
-     * @return bool `true` if admin access allowed, `false` if it is denied.
-     */
-    public static function accessGet(): bool
-    {
-        return Security::check();
-    }
-
-    /**
-     * Check access. If admin access is denied, {@link AccessException} would be rose.
-     *
-     * @throws AccessException
-     */
-    public static function accessCheck(): void
-    {
-        if(Security::check())
-        {
-            return;
-        }
-
-        throw new AccessException();
     }
 }
