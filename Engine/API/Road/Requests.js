@@ -1,12 +1,7 @@
 I60.Road = {
     create: function ()
     {
-        if(!confirm('Are you sure you want to jump?'))
-        {
-            return;
-        }
-
-        if(!confirm('This day is complete?'))
+        if(!confirm('Are you sure?'))
         {
             return;
         }
@@ -14,7 +9,7 @@ I60.Road = {
         API.request('I60.Road.Create', {
 
         }, function (data) {
-            I60.Road.show();
+            I60.Road.search();
         }, function () {
 
         });

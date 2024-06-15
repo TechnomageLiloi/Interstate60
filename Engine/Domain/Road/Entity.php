@@ -32,6 +32,11 @@ class Entity extends AbstractEntity
         Manager::save($this);
     }
 
+    public function getStep(): string
+    {
+        return date('Y F j (D) - g:i a', strtotime($this->getKey()));
+    }
+
     public function getTypeTitle(): string
     {
         return Types::$list[$this->getType()];

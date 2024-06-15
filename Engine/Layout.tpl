@@ -21,7 +21,7 @@
     </head>
     <body>
         <div id="head">
-
+            <a href="javascript:void(0)" onclick="I60.Road.create();" class="butn">Create new step</a>
         </div>
         <div id="page">
             <script>
