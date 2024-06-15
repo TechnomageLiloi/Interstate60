@@ -15,7 +15,7 @@
 
         <script src="<?php echo ROOT_URL; ?>/Engine/Bootstrap.js"></script>
         <script src="<?php echo ROOT_URL; ?>/Engine/API/Requests.js"></script>
-        <script src="<?php echo ROOT_URL; ?>/Engine/API/Wiki/Requests.js"></script>
+        <script src="<?php echo ROOT_URL; ?>/Engine/API/Road/Requests.js"></script>
 
         <title>Interstate60</title>
     </head>

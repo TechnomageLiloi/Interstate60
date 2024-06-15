@@ -30,12 +30,11 @@ class Tree
         if(self::$instance === null)
         {
             $manager = new Manager();
-
-            /*
-            $manager->add(new Method('Rune.Wiki.Show', '\Liloi\Rune\API\Wiki\Show\Method::execute'));
-            $manager->add(new Method('Rune.Wiki.Edit', '\Liloi\Rune\API\Wiki\Edit\Method::execute'));
-            $manager->add(new Method('Rune.Wiki.Save', '\Liloi\Rune\API\Wiki\Save\Method::execute'));
-            */
+            
+            $manager->add(new Method('I60.Road.Create', '\Liloi\I60\API\Road\Create\Method::execute'));
+            $manager->add(new Method('I60.Road.Show', '\Liloi\I60\API\Road\Show\Method::execute'));
+            $manager->add(new Method('I60.Road.Edit', '\Liloi\I60\API\Road\Edit\Method::execute'));
+            $manager->add(new Method('I60.Road.Save', '\Liloi\I60\API\Road\Save\Method::execute'));
 
             self::$instance = new self($manager);
         }
@@ -46,16 +45,6 @@ class Tree
     public function execute(): string
     {
         // @todo: optimize
-
-//        if(strpos($_POST['method'], 'Rune.User.') !== false)
-//        {
-//            return $this->manager->search($_POST['method'])->execute($_POST['parameters'] ?? [])->asJson();
-//        }
-//
-//        if(strpos($_POST['method'], 'Rune.Security.') === false)
-//        {
-//            RuneMethod::accessCheck();
-//        }
 
         // @todo: add dynamic API search (by namespace).
         $response = $this->manager->search($_POST['method'])->execute($_POST['parameters'] ?? []);

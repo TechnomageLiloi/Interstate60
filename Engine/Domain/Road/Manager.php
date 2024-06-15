@@ -1,6 +1,6 @@
 <?php
 
-namespace Liloi\I60\Domain\Diary;
+namespace Liloi\I60\Domain\Road;
 
 use Liloi\I60\Domain\Manager as DomainManager;
 
