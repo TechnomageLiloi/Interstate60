@@ -73,16 +73,17 @@ class Manager extends DomainManager
     /**
      * Create new day.
      */
-    public static function create(): void
+    public static function create(): Entity
     {
-        self::getAdapter()->insert(self::getTableName(), [
-            'title' => 'Enter the title',
-            'program' => '-',
-            'data' => '{}',
-            'status' => Statuses::TODO,
-            'type' => Types::BIOTECH,
-            'start' => date('Y-m-d H:i:s'),
-            'finish' => date('Y-m-d H:i:s')
-        ]);
+        $data = [
+            'key_step' => date('Y-m-d H:i:s'),
+            'summary' => '-',
+            'type' => Types::CODEX,
+            'data' => '{}'
+        ];
+
+        self::getAdapter()->insert(self::getTableName(), $data);
+
+        return Entity::create($data);
     }
 }
