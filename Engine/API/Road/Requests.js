@@ -20,6 +20,17 @@ I60.Road = {
         });
     },
 
+    search: function ()
+    {
+        API.request('I60.Road.Search', {
+
+        }, function (data) {
+            $('#page').html(data.render);
+        }, function () {
+
+        });
+    },
+
     show: function ()
     {
         API.request('I60.Road.Show', {

@@ -31,6 +31,7 @@ class Tree
         {
             $manager = new Manager();
             
+            $manager->add(new Method('I60.Road.Search', '\Liloi\I60\API\Road\Search\Method::execute'));
             $manager->add(new Method('I60.Road.Create', '\Liloi\I60\API\Road\Create\Method::execute'));
             $manager->add(new Method('I60.Road.Show', '\Liloi\I60\API\Road\Show\Method::execute'));
             $manager->add(new Method('I60.Road.Edit', '\Liloi\I60\API\Road\Edit\Method::execute'));

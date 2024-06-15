@@ -13,22 +13,41 @@ class Manager extends DomainManager
      */
     public static function getTableName(): string
     {
-        return self::getTablePrefix() . 'diary';
+        return self::getTablePrefix() . 'road';
+    }
+
+    public static function loadCollection(): Collection
+    {
+        $name = self::getTableName();
+
+        $rows = self::getAdapter()->getArray(sprintf(
+            'select * from %s order by key_step desc limit 17;',
+            $name
+        ));
+
+        $collection = new Collection();
+
+        foreach($rows as $row)
+        {
+            $collection[] = Entity::create($row);
+        }
+
+        return $collection;
     }
 
     /**
      * Load day by key.
      *
-     * @param string $key_day
+     * @param string $keyStep
      * @return Entity
      */
-    public static function load(string $key_day): Entity
+    public static function load(string $keyStep): Entity
     {
         $name = self::getTableName();
 
         $row = self::getAdapter()->getRow(sprintf(
-            'select * from %s where key_day="%s";',
-            $name, $key_day
+            'select * from %s where key_step="%s";',
+            $name, $keyStep
         ));
 
         if(!$row)
@@ -49,7 +68,7 @@ class Manager extends DomainManager
         $name = self::getTableName();
 
         $row = self::getAdapter()->getRow(sprintf(
-            'select * from %s order by key_day desc limit 1;',
+            'select * from %s order by key_step desc limit 1;',
             $name
         ));
 
