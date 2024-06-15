@@ -17,22 +17,15 @@
         <script src="<?php echo ROOT_URL; ?>/Engine/API/Requests.js"></script>
         <script src="<?php echo ROOT_URL; ?>/Engine/API/Wiki/Requests.js"></script>
 
-        <title>Rune</title>
+        <title>Interstate60</title>
     </head>
     <body>
         <div id="head">
-            <?php if(file_exists(ROOT_DIR . '/Admin/index.php')): ?>
-                <a href="/Admin" class="butn" target="_blank">Admin</a>
-            <?php endif; ?>
 
-            <a href="/links" class="butn">Links</a>
-            <a href="/diary/<?php echo date('Y/W/N', strtotime('-1 day'));?>" class="butn">Yesterday</a>
-            <a href="/diary/<?php echo date('Y/W/N');?>" class="butn">Today</a>
-            <a href="javascript:void(0)" class="butn" onclick="Rune.Wiki.edit();">Edit Wiki</a>
         </div>
         <div id="page">
             <script>
-                Rune.Wiki.show();
+
             </script>
         </div>
     </body>
