@@ -37,10 +37,10 @@ I60.Road = {
         });
     },
 
-    edit: function ()
+    edit: function (key_step)
     {
         API.request('I60.Road.Edit', {
-
+            key_step: key_step
         }, function (data) {
             const wrap = $('#page');
             wrap.html(data.render);
@@ -50,7 +50,7 @@ I60.Road = {
         });
     },
 
-    save: function ()
+    save: function (key_step)
     {
         if(!confirm('Are you sure?'))
         {
@@ -59,6 +59,7 @@ I60.Road = {
 
         const jq_block = $('#application-diary-edit');
         API.request('I60.Road.Save', {
+            key_step: key_step,
             data: jq_block.find('[name=data]').val(),
             summary: jq_block.find('[name=summary]').val(),
             type: jq_block.find('[name=type]').val()

@@ -84,9 +84,9 @@ class Manager extends DomainManager
     {
         $name = self::getTableName();
         $data = $entity->get();
-        unset($data['key_day']);
+        unset($data['key_step']);
 
-        self::update($name, $data, sprintf('key_day="%s"', $entity->getKey()));
+        self::update($name, $data, sprintf('key_step="%s"', $entity->getKey()));
     }
 
     /**

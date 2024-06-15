@@ -3,8 +3,8 @@
 <div id="application-diary-show" class="stylo">
 
     <div class="controls">
-        <a href="javascript:void(0)" onclick="I60.Road.show();">Show</a> &diams;
-        <a href="javascript:void(0)" onclick="I60.Road.edit();">Edit</a>
+        <a href="javascript:void(0)" onclick="I60.Road.show('<?php echo $entity->getKey(); ?>');">Show</a> &diams;
+        <a href="javascript:void(0)" onclick="I60.Road.edit('<?php echo $entity->getKey(); ?>');">Edit</a>
     </div>
 
     <div class="data">
