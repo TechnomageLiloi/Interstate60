@@ -21,7 +21,7 @@ class Manager extends DomainManager
         $name = self::getTableName();
 
         $rows = self::getAdapter()->getArray(sprintf(
-            "select * from %s where start between '%s 00:00:00' and '%s 23:59:59' order by key_ticket asc;",
+            "select * from %s where start between '%s 00:00:00' and '%s 23:59:59' order by key_ticket desc;",
             $name, date('Y-m-d'), date('Y-m-d')
         ));
 
@@ -31,8 +31,6 @@ class Manager extends DomainManager
         {
             $collection[(int)$row['key_ticket']] = Entity::create($row);
         }
-
-        $collection->ksort();
 
         return $collection;
     }
@@ -91,7 +89,7 @@ class Manager extends DomainManager
     /**
      * Create new day.
      */
-    public static function create($key_period): Entity
+    public static function create(): Entity
     {
         $data = [
             'start' => date('Y-m-d H:i:s'),
