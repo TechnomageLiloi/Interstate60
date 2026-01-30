@@ -11,5 +11,13 @@ use Liloi\Tools\Entity as AbstractEntity;
  */
 class Entity extends AbstractEntity
 {
+    public function getKeyTicket(): string
+    {
+        return $this->getField('key_ticket');
+    }
 
+    public function save(): void
+    {
+        Manager::save($this);
+    }
 }
