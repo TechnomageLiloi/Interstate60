@@ -9,7 +9,7 @@ class Method extends SuperMethod
 {
     public function execute(): array
     {
-        $schedule = DiaryManager::loadSchedule();
+        $schedule = DiaryManager::loadCollection();
 
         return [
             'render' => $this->render(__DIR__ . '/Template.tpl', [
