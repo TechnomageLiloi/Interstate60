@@ -6,8 +6,17 @@ use Liloi\Stylo\Parser;
 use Liloi\Tools\Entity as AbstractEntity;
 
 /**
- * @method string getComment()
- * @method void setComment(string $value)
+ * @method string getStart()
+ * @method void setStart(string $value)
+ *
+ * @method string getTitle()
+ * @method void setTitle(string $value)
+ *
+ * @method string getStatus()
+ * @method void setStatus(string $value)
+ *
+ * @method string getData()
+ * @method void setData(string $value)
  */
 class Entity extends AbstractEntity
 {

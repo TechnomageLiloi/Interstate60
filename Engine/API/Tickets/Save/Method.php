@@ -10,7 +10,10 @@ class Method extends SuperMethod
     public function execute(): array
     {
         $entity = DiaryManager::load($_POST['parameters']['key_ticket']);
-        $entity->setComment($_POST['parameters']['comment']);
+        $entity->setStart($_POST['parameters']['start']);
+        $entity->setTitle($_POST['parameters']['title']);
+        $entity->setStatus($_POST['parameters']['status']);
+        $entity->setData($_POST['parameters']['data']);
         $entity->save();
 
         return [];
