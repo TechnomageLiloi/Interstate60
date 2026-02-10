@@ -96,7 +96,7 @@ class Manager extends DomainManager
 
         $epoch = self::getAdapter()->getSingle(sprintf(
             'select key_epoch from %s where status="%s" order by key_epoch desc;',
-            $name, Statuses::DEFENDED
+            $name, Statuses::DEFENDING
         ));
 
         if(!$epoch)
