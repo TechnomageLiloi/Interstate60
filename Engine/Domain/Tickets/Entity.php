@@ -29,4 +29,9 @@ class Entity extends AbstractEntity
     {
         Manager::save($this);
     }
+
+    public function getClass(): string
+    {
+        return strtolower(str_replace(' ', '-', Statuses::$list[$this->getStatus()]));
+    }
 }

@@ -4,6 +4,21 @@
 
 <div id="tickets-schedule">
 
+    <style>
+        tr.to-do td
+        {
+            background-color: #ffd3d3;
+        }
+        tr.in-hand td
+        {
+            background-color: #feffd3;
+        }
+        tr.complete td
+        {
+            background-color: #d6ffd3;
+        }
+    </style>
+
     <h1>Tickets for today</h1>
 
     <table style="width: 100%;">
@@ -16,11 +31,11 @@
             <th style="text-align: right;">Actions</th>
         </tr>
         <?php foreach($schedule as $key => $entity): ?>
-        <tr>
+        <tr class="<?php echo $entity->getClass(); ?>">
             <td>#<?php echo $entity->getKeyTicket(); ?></td>
             <td><?php echo $entity->getStart(); ?></td>
             <td><?php echo $entity->getTitle(); ?></td>
-            <td><?php echo $entity->getStatus(); ?></td>
+            <td><?php echo $entity->getClass(); ?></td>
             <td><?php echo $entity->getData(); ?></td>
             <td style="text-align: right;">
                 <a href="javascript:void(0)" class="butn" onclick="Requests.Tickets.inHand('<?php echo $entity->getKeyTicket(); ?>');">Set In Hand</a>
