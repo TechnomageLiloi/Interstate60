@@ -24,22 +24,6 @@ CREATE TABLE `i60_config` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `i60_logs`
---
-
-DROP TABLE IF EXISTS `i60_logs`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `i60_logs` (
-  `key_log` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `ts` timestamp NOT NULL,
-  `tags` varchar(1000) NOT NULL,
-  `data` json NOT NULL,
-  PRIMARY KEY (`key_log`)
-) ENGINE=InnoDB DEFAULT CHARSET=cp1251;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Table structure for table `i60_epochs`
 --
 
@@ -58,6 +42,22 @@ CREATE TABLE `i60_epochs` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `i60_logs`
+--
+
+DROP TABLE IF EXISTS `i60_logs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `i60_logs` (
+  `key_log` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `ts` timestamp NOT NULL,
+  `tags` varchar(1000) NOT NULL,
+  `data` json NOT NULL,
+  PRIMARY KEY (`key_log`)
+) ENGINE=InnoDB DEFAULT CHARSET=cp1251;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `i60_milestones`
 --
 
@@ -72,11 +72,11 @@ CREATE TABLE `i60_milestones` (
   `summary` text NOT NULL,
   `start` date NOT NULL,
   `finish` date NOT NULL,
-  PRIMARY KEY (`key_milestone`, `key_epoch`),
-  FOREIGN KEY (`key_epoch`) REFERENCES `i60_epochs` (`key_epoch`) ON DELETE CASCADE ON UPDATE CASCADE
+  PRIMARY KEY (`key_milestone`,`key_epoch`),
+  KEY `key_epoch` (`key_epoch`),
+  CONSTRAINT `i60_milestones_ibfk_1` FOREIGN KEY (`key_epoch`) REFERENCES `i60_epochs` (`key_epoch`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=cp1251;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
 
 --
 -- Table structure for table `i60_quests`
@@ -94,8 +94,9 @@ CREATE TABLE `i60_quests` (
   `type` tinyint unsigned NOT NULL DEFAULT '1',
   `summary` text NOT NULL,
   `data` json NOT NULL,
-  PRIMARY KEY (`key_quest`, `key_milestone`, `key_epoch`),
-  FOREIGN KEY (`key_milestone`, `key_epoch`) REFERENCES `i60_milestones` (`key_milestone`, `key_epoch`) ON DELETE CASCADE ON UPDATE CASCADE
+  PRIMARY KEY (`key_quest`,`key_milestone`,`key_epoch`),
+  KEY `key_milestone` (`key_milestone`,`key_epoch`),
+  CONSTRAINT `i60_quests_ibfk_1` FOREIGN KEY (`key_milestone`, `key_epoch`) REFERENCES `i60_milestones` (`key_milestone`, `key_epoch`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=cp1251;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -112,6 +113,7 @@ CREATE TABLE `i60_tickets` (
   `title` varchar(300) NOT NULL,
   `status` tinyint unsigned NOT NULL DEFAULT '1',
   `data` text NOT NULL,
+  `mark` tinyint unsigned NOT NULL DEFAULT '1',
   PRIMARY KEY (`key_ticket`)
 ) ENGINE=InnoDB DEFAULT CHARSET=cp1251;
 /*!40101 SET character_set_client = @saved_cs_client */;

@@ -12,6 +12,7 @@ class Method extends SuperMethod
         $entity = DiaryManager::load($_POST['parameters']['key_ticket']);
         $entity->setStart($_POST['parameters']['start']);
         $entity->setTitle($_POST['parameters']['title']);
+        $entity->setMark($_POST['parameters']['mark']);
         $entity->setStatus($_POST['parameters']['status']);
         $entity->setData($_POST['parameters']['data']);
         $entity->save();

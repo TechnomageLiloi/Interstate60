@@ -63,6 +63,7 @@ Requests.Tickets = {
             start: jq_block.find('[name=start]').val(),
             status: jq_block.find('[name=status]').val(),
             title: jq_block.find('[name=title]').val(),
+            mark: jq_block.find('[name=mark]').val(),
             data: jq_block.find('[name=data]').val()
         }, function (data) {
             Requests.Tickets.schedule();

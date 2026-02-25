@@ -95,7 +95,8 @@ class Manager extends DomainManager
             'start' => date('Y-m-d H:i:s'),
             'title' => 'Enter the title',
             'status' => Statuses::TODO,
-            'data' => '{}'
+            'data' => '{}',
+            'mark' => '1'
         ];
 
         self::getAdapter()->insert(self::getTableName(), $data);

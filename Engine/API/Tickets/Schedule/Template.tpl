@@ -25,6 +25,7 @@
         <tr style="text-align: left;">
             <th>Unique ID</th>
             <th>Timestamp</th>
+            <th>Mark</th>
             <th>Title</th>
             <th>Start</th>
             <th>Data</th>
@@ -34,6 +35,7 @@
         <tr class="<?php echo $entity->getClass(); ?>">
             <td>#<?php echo $entity->getKeyTicket(); ?></td>
             <td><?php echo $entity->getStart(); ?></td>
+            <td><?php echo $entity->getMark(); ?></td>
             <td><?php echo $entity->getTitle(); ?></td>
             <td><?php echo $entity->getClass(); ?></td>
             <td><?php echo $entity->getData(); ?></td>

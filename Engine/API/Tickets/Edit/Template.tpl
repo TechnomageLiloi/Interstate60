@@ -18,6 +18,12 @@
             </td>
         </tr>
         <tr>
+            <td>Mark</td>
+            <td>
+                <input name="mark" type="text" value="<?php echo $entity->getMark(); ?>" />
+            </td>
+        </tr>
+        <tr>
             <td>Status</td>
             <td>
                 <input name="status" type="text" value="<?php echo $entity->getStatus(); ?>" />
