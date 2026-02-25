@@ -82,6 +82,9 @@ CREATE TABLE `i60_milestones` (
 -- Table structure for table `i60_quests`
 --
 
+DROP TABLE IF EXISTS `i60_quests`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `i60_quests` (
   `key_quest` tinyint unsigned NOT NULL,
   `key_milestone` tinyint unsigned NOT NULL,
@@ -94,8 +97,24 @@ CREATE TABLE `i60_quests` (
   PRIMARY KEY (`key_quest`, `key_milestone`, `key_epoch`),
   FOREIGN KEY (`key_milestone`, `key_epoch`) REFERENCES `i60_milestones` (`key_milestone`, `key_epoch`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=cp1251;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `i60_tickets`
+--
 
+DROP TABLE IF EXISTS `i60_tickets`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `i60_tickets` (
+  `key_ticket` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `start` timestamp NOT NULL,
+  `title` varchar(300) NOT NULL,
+  `status` tinyint unsigned NOT NULL DEFAULT '1',
+  `data` text NOT NULL,
+  PRIMARY KEY (`key_ticket`)
+) ENGINE=InnoDB DEFAULT CHARSET=cp1251;
+/*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
