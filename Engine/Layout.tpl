@@ -19,6 +19,7 @@
     <script src="<?php echo ROOT_URL; ?>/Engine/API/Epochs/Requests.js"></script>
     <script src="<?php echo ROOT_URL; ?>/Engine/API/Milestones/Requests.js"></script>
     <script src="<?php echo ROOT_URL; ?>/Engine/API/Quests/Requests.js"></script>
+    <script src="<?php echo ROOT_URL; ?>/Engine/API/Tickets/Requests.js"></script>
 
     <title>Interstate 60</title>
 </head>
@@ -28,11 +29,12 @@
     <a class="butn" href="javascript:void(0)" onclick="Requests.Epochs.getCollection();">Epochs</a>
     <a class="butn" href="javascript:void(0)" onclick="Requests.Milestones.getCollection();">Milestones</a>
     <a class="butn" href="javascript:void(0)" onclick="Requests.Quests.getCollection();">Quests</a>
+    <a class="butn" href="javascript:void(0)" onclick="Requests.Tickets.schedule();">Schedule</a>
 </div>
 
 <div id="page" class="stylo">
     <script>
-        Requests.Epochs.getCollection();
+        Requests.Tickets.schedule();
     </script>
 </div>
 </body>

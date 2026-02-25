@@ -21,7 +21,7 @@ class Manager extends DomainManager
         $name = self::getTableName();
 
         $rows = self::getAdapter()->getArray(sprintf(
-            "select * from %s where start between '%s 00:00:00' and '%s 23:59:59' order by key_ticket desc;",
+            "select * from %s where start between '%s 00:00:00' and '%s 23:59:59' order by start desc;",
             $name, date('Y-m-d'), date('Y-m-d')
         ));
 

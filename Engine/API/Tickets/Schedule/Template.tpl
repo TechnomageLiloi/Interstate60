@@ -1,4 +1,7 @@
 <style><?php echo file_get_contents(__DIR__ . '/Style.css'); ?></style>
+
+<a class="butn" href="javascript:void(0)" onclick="Requests.Tickets.create();">Create new ticket</a>
+
 <div id="tickets-schedule">
 
     <h1>Tickets for today</h1>
