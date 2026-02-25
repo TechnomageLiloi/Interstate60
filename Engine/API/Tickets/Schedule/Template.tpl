@@ -13,7 +13,7 @@
             <th>Title</th>
             <th>Start</th>
             <th>Data</th>
-            <th>Actions</th>
+            <th style="text-align: right;">Actions</th>
         </tr>
         <?php foreach($schedule as $key => $entity): ?>
         <tr>
@@ -22,7 +22,8 @@
             <td><?php echo $entity->getTitle(); ?></td>
             <td><?php echo $entity->getStatus(); ?></td>
             <td><?php echo $entity->getData(); ?></td>
-            <td>
+            <td style="text-align: right;">
+                <a href="javascript:void(0)" class="butn" onclick="Requests.Tickets.inHand('<?php echo $entity->getKeyTicket(); ?>');">Set In Hand</a>
                 <a href="javascript:void(0)" class="butn" onclick="Requests.Tickets.show('<?php echo $entity->getKeyTicket(); ?>');">Show</a>
                 <a href="javascript:void(0)" class="butn" onclick="Requests.Tickets.edit('<?php echo $entity->getKeyTicket(); ?>');">Edit</a>
             </td>

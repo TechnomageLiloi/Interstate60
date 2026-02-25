@@ -69,5 +69,17 @@ Requests.Tickets = {
         }, function () {
 
         });
+    },
+
+    inHand: function (key_ticket)
+    {
+        const jq_block = $('#application-diary-edit');
+        API.request('Tickets.InHand', {
+            key_ticket: key_ticket
+        }, function (data) {
+            Requests.Tickets.schedule();
+        }, function () {
+
+        });
     }
 }
