@@ -65,14 +65,14 @@ DROP TABLE IF EXISTS `i60_milestones`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `i60_milestones` (
-  `key_milestone` tinyint unsigned NOT NULL,
+  `key_milestone` smallint unsigned NOT NULL AUTO_INCREMENT,
   `key_epoch` tinyint unsigned NOT NULL,
   `title` varchar(100) NOT NULL,
   `status` tinyint unsigned NOT NULL DEFAULT '1',
   `summary` text NOT NULL,
   `start` date NOT NULL,
   `finish` date NOT NULL,
-  PRIMARY KEY (`key_milestone`,`key_epoch`),
+  PRIMARY KEY (`key_milestone`),
   KEY `key_epoch` (`key_epoch`),
   CONSTRAINT `i60_milestones_ibfk_1` FOREIGN KEY (`key_epoch`) REFERENCES `i60_epochs` (`key_epoch`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=cp1251;
@@ -86,17 +86,17 @@ DROP TABLE IF EXISTS `i60_quests`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `i60_quests` (
-  `key_quest` tinyint unsigned NOT NULL,
-  `key_milestone` tinyint unsigned NOT NULL,
+  `key_quest` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `key_milestone` smallint unsigned NOT NULL,
   `key_epoch` tinyint unsigned NOT NULL,
   `title` varchar(100) NOT NULL,
   `status` tinyint unsigned NOT NULL DEFAULT '1',
   `type` tinyint unsigned NOT NULL DEFAULT '1',
   `summary` text NOT NULL,
   `data` json NOT NULL,
-  PRIMARY KEY (`key_quest`,`key_milestone`,`key_epoch`),
-  KEY `key_milestone` (`key_milestone`,`key_epoch`),
-  CONSTRAINT `i60_quests_ibfk_1` FOREIGN KEY (`key_milestone`, `key_epoch`) REFERENCES `i60_milestones` (`key_milestone`, `key_epoch`) ON DELETE CASCADE ON UPDATE CASCADE
+  PRIMARY KEY (`key_quest`),
+  KEY `key_milestone` (`key_milestone`),
+  CONSTRAINT `i60_quests_ibfk_1` FOREIGN KEY (`key_milestone`) REFERENCES `i60_milestones` (`key_milestone`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=cp1251;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

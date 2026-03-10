@@ -76,7 +76,6 @@ class Manager extends DomainManager
     public static function create(): Entity
     {
         $data = [
-            'key_milestone' => self::getHighestMilestone() + 1,
             'key_epoch' => EpochsManager::getHighestEpoch(),
             'title' => 'Enter the title',
             'status' => Statuses::TODO,
