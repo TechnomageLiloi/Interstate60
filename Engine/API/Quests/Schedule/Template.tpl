@@ -5,15 +5,19 @@
     <style>
         tr.to-do td
         {
-            background-color: #ffd3d3;
+            background-color: #ececec;
         }
         tr.in-hand td
         {
             background-color: #feffd3;
         }
-        tr.complete td
+        tr.success td
         {
             background-color: #d6ffd3;
+        }
+        tr.failure td
+        {
+            background-color: #ffd3d3;
         }
     </style>
 
