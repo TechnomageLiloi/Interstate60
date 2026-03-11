@@ -16,9 +16,6 @@
     <link href="<?php echo ROOT_URL; ?>/Engine/API/Style.css" rel="stylesheet" />
 
     <script src="<?php echo ROOT_URL; ?>/Engine/API/Requests.js"></script>
-    <script src="<?php echo ROOT_URL; ?>/Engine/API/Epochs/Requests.js"></script>
-    <script src="<?php echo ROOT_URL; ?>/Engine/API/Milestones/Requests.js"></script>
-    <script src="<?php echo ROOT_URL; ?>/Engine/API/Quests/Requests.js"></script>
     <script src="<?php echo ROOT_URL; ?>/Engine/API/Tickets/Requests.js"></script>
 
     <title>Interstate 60</title>

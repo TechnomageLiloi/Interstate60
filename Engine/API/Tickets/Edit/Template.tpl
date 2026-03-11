@@ -26,9 +26,14 @@
         <tr>
             <td>Status</td>
             <td>
-                <input name="status" type="text" value="<?php echo $entity->getStatus(); ?>" />
+                <select name="status">
+                    <?php foreach($statuses as $key => $value): ?>
+                    <option value="<?php echo $key; ?>" <?php if($entity->getStatus() == $key): ?>selected="selected"<?php endif; ?>><?php echo $value; ?></option>
+                    <?php endforeach; ?>
+                </select>
             </td>
         </tr>
+
         <tr>
             <td>Data</td>
             <td>
