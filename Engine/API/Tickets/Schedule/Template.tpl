@@ -33,7 +33,7 @@
         </tr>
         <?php foreach($schedule as $key => $entity): ?>
         <tr class="<?php echo $entity->getClass(); ?>">
-            <td>#<?php echo $entity->getKeyTicket(); ?></td>
+            <td>#<?php echo $entity->getUID(); ?></td>
             <td><?php echo $entity->getStart(); ?></td>
             <td><?php echo $entity->getMark(); ?></td>
             <td><?php echo $entity->getTitle(); ?></td>

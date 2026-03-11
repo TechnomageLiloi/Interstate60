@@ -26,9 +26,6 @@
 <body>
 <div id="menu">
     <a class="butn" href="javascript:void(0)" onclick="window.location.reload();">Refresh</a>
-    <a class="butn" href="javascript:void(0)" onclick="Requests.Epochs.getCollection();">Epochs</a>
-    <a class="butn" href="javascript:void(0)" onclick="Requests.Milestones.getCollection();">Milestones</a>
-    <a class="butn" href="javascript:void(0)" onclick="Requests.Quests.getCollection();">Quests</a>
     <a class="butn" href="javascript:void(0)" onclick="Requests.Tickets.schedule();">Schedule</a>
 </div>
 

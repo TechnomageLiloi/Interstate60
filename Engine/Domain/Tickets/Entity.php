@@ -37,4 +37,9 @@ class Entity extends AbstractEntity
     {
         return strtolower(str_replace(' ', '-', Statuses::$list[$this->getStatus()]));
     }
+
+    public function getUID(): string
+    {
+        return sprintf('%07s', base_convert($this->getKeyTicket(), 10, 36));
+    }
 }
