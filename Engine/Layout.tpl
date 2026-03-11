@@ -16,19 +16,19 @@
     <link href="<?php echo ROOT_URL; ?>/Engine/API/Style.css" rel="stylesheet" />
 
     <script src="<?php echo ROOT_URL; ?>/Engine/API/Requests.js"></script>
-    <script src="<?php echo ROOT_URL; ?>/Engine/API/Tickets/Requests.js"></script>
+    <script src="<?php echo ROOT_URL; ?>/Engine/API/Quests/Requests.js"></script>
 
     <title>Interstate 60</title>
 </head>
 <body>
 <div id="menu">
     <a class="butn" href="javascript:void(0)" onclick="window.location.reload();">Refresh</a>
-    <a class="butn" href="javascript:void(0)" onclick="Requests.Tickets.schedule();">Schedule</a>
+    <a class="butn" href="javascript:void(0)" onclick="Requests.Quests.schedule();">Schedule</a>
 </div>
 
 <div id="page" class="stylo">
     <script>
-        Requests.Tickets.schedule();
+        Requests.Quests.schedule();
     </script>
 </div>
 </body>

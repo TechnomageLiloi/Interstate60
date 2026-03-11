@@ -1,6 +1,6 @@
 <?php
 
-namespace Liloi\I60\Domain\Tickets;
+namespace Liloi\I60\Domain\Quests;
 
 use Liloi\Stylo\Parser;
 use Liloi\Tools\Entity as AbstractEntity;
@@ -23,9 +23,9 @@ use Liloi\Tools\Entity as AbstractEntity;
  */
 class Entity extends AbstractEntity
 {
-    public function getKeyTicket(): string
+    public function getKeyQuest(): string
     {
-        return $this->getField('key_ticket');
+        return $this->getField('key_quest');
     }
 
     public function save(): void
@@ -40,6 +40,6 @@ class Entity extends AbstractEntity
 
     public function getUID(): string
     {
-        return sprintf('%07s', base_convert($this->getKeyTicket(), 10, 36));
+        return sprintf('%07s', base_convert($this->getKeyQuest(), 10, 36));
     }
 }

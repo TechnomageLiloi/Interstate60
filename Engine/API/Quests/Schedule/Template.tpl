@@ -1,8 +1,8 @@
 <style><?php echo file_get_contents(__DIR__ . '/Style.css'); ?></style>
 
-<a class="butn" href="javascript:void(0)" onclick="Requests.Tickets.create();">Create new ticket</a>
+<a class="butn" href="javascript:void(0)" onclick="Requests.Quests.create();">Create new quest</a>
 
-<div id="tickets-schedule">
+<div id="quests-schedule">
 
     <style>
         tr.to-do td
@@ -19,7 +19,7 @@
         }
     </style>
 
-    <h1>Tickets for today</h1>
+    <h1>Quests for today</h1>
 
     <table style="width: 100%;">
         <tr style="text-align: left;">
@@ -40,9 +40,9 @@
             <td><?php echo $entity->getClass(); ?></td>
             <td><?php echo $entity->getData(); ?></td>
             <td style="text-align: right;">
-                <a href="javascript:void(0)" class="butn" onclick="Requests.Tickets.inHand('<?php echo $entity->getKeyTicket(); ?>');">Set In Hand</a>
-                <a href="javascript:void(0)" class="butn" onclick="Requests.Tickets.show('<?php echo $entity->getKeyTicket(); ?>');">Show</a>
-                <a href="javascript:void(0)" class="butn" onclick="Requests.Tickets.edit('<?php echo $entity->getKeyTicket(); ?>');">Edit</a>
+                <a href="javascript:void(0)" class="butn" onclick="Requests.Quests.inHand('<?php echo $entity->getKeyQuest(); ?>');">Set In Hand</a>
+                <a href="javascript:void(0)" class="butn" onclick="Requests.Quests.show('<?php echo $entity->getKeyQuest(); ?>');">Show</a>
+                <a href="javascript:void(0)" class="butn" onclick="Requests.Quests.edit('<?php echo $entity->getKeyQuest(); ?>');">Edit</a>
             </td>
         </tr>
         <?php endforeach; ?>

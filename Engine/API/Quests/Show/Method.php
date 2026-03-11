@@ -1,19 +1,19 @@
 <?php
 
-namespace Liloi\I60\API\Tickets\Schedule;
+namespace Liloi\I60\API\Quests\Show;
 
 use Liloi\I60\API\Method as SuperMethod;
-use Liloi\I60\Domain\Tickets\Manager as DiaryManager;
+use Liloi\I60\Domain\Quests\Manager as DiaryManager;
 
 class Method extends SuperMethod
 {
     public function execute(): array
     {
-        $schedule = DiaryManager::loadCollection();
+        $entity = DiaryManager::load($_POST['parameters']['key_quest']);
 
         return [
             'render' => $this->render(__DIR__ . '/Template.tpl', [
-                'schedule' => $schedule
+                'entity' => $entity
             ])
         ];
     }

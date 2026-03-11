@@ -1,6 +1,6 @@
 <?php
 
-namespace Liloi\I60\Domain\Tickets;
+namespace Liloi\I60\Domain\Quests;
 
 use Liloi\I60\Domain\Manager as DomainManager;
 
@@ -13,7 +13,7 @@ class Manager extends DomainManager
      */
     public static function getTableName(): string
     {
-        return self::getTablePrefix() . 'tickets';
+        return self::getTablePrefix() . 'quests';
     }
 
     public static function loadCollection(): Collection
@@ -29,7 +29,7 @@ class Manager extends DomainManager
 
         foreach($rows as $row)
         {
-            $collection[(int)$row['key_ticket']] = Entity::create($row);
+            $collection[(int)$row['key_quest']] = Entity::create($row);
         }
 
         return $collection;
@@ -49,20 +49,20 @@ class Manager extends DomainManager
         /** @var Entity $entity */
         foreach ($collection as $entity)
         {
-            $hour = date('H', strtotime($entity->getKeyTicket()));
+            $hour = date('H', strtotime($entity->getKeyQuest()));
             $schedule[$hour][] = $entity;
         }
 
         return $schedule;
     }
 
-    public static function load(string $key_ticket): Entity
+    public static function load(string $key_quest): Entity
     {
         $name = self::getTableName();
 
         $row = self::getAdapter()->getRow(sprintf(
-            'select * from %s where key_ticket="%s";',
-            $name, $key_ticket
+            'select * from %s where key_quest="%s";',
+            $name, $key_quest
         ));
 
         if(!$row)
@@ -83,7 +83,7 @@ class Manager extends DomainManager
         $name = self::getTableName();
         $data = $entity->get();
 
-        self::update($name, $data, sprintf('key_ticket="%s"', $data['key_ticket']));
+        self::update($name, $data, sprintf('key_quest="%s"', $data['key_quest']));
     }
 
     /**

@@ -1,7 +1,7 @@
-Requests.Tickets = {
+Requests.Quests = {
     schedule: function ()
     {
-        API.request('Tickets.Schedule', {
+        API.request('Quests.Schedule', {
             'debuug': true
         }, function (data) {
             $('#page').html(data.render);
@@ -10,10 +10,10 @@ Requests.Tickets = {
         });
     },
 
-    show: function (key_ticket)
+    show: function (key_quest)
     {
-        API.request('Tickets.Show', {
-            key_ticket: key_ticket
+        API.request('Quests.Show', {
+            key_quest: key_quest
         }, function (data) {
             $('#page').html(data.render);
         }, function () {
@@ -28,19 +28,19 @@ Requests.Tickets = {
             return;
         }
 
-        API.request('Tickets.Create', {
+        API.request('Quests.Create', {
             'debuug': true
         }, function (data) {
-            Requests.Tickets.schedule();
+            Requests.Quests.schedule();
         }, function () {
 
         });
     },
 
-    edit: function (key_ticket)
+    edit: function (key_quest)
     {
-        API.request('Tickets.Edit', {
-            key_ticket: key_ticket
+        API.request('Quests.Edit', {
+            key_quest: key_quest
         }, function (data) {
             const wrap = $('#page');
             wrap.html(data.render);
@@ -50,7 +50,7 @@ Requests.Tickets = {
         });
     },
 
-    save: function (key_ticket)
+    save: function (key_quest)
     {
         if(!confirm('Are you sure?'))
         {
@@ -58,27 +58,27 @@ Requests.Tickets = {
         }
 
         const jq_block = $('#application-diary-edit');
-        API.request('Tickets.Save', {
-            key_ticket: key_ticket,
+        API.request('Quests.Save', {
+            key_quest: key_quest,
             start: jq_block.find('[name=start]').val(),
             status: jq_block.find('[name=status]').val(),
             title: jq_block.find('[name=title]').val(),
             mark: jq_block.find('[name=mark]').val(),
             data: jq_block.find('[name=data]').val()
         }, function (data) {
-            Requests.Tickets.schedule();
+            Requests.Quests.schedule();
         }, function () {
 
         });
     },
 
-    inHand: function (key_ticket)
+    inHand: function (key_quest)
     {
         const jq_block = $('#application-diary-edit');
-        API.request('Tickets.InHand', {
-            key_ticket: key_ticket
+        API.request('Quests.InHand', {
+            key_quest: key_quest
         }, function (data) {
-            Requests.Tickets.schedule();
+            Requests.Quests.schedule();
         }, function () {
 
         });

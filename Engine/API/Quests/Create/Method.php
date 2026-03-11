@@ -1,9 +1,9 @@
 <?php
 
-namespace Liloi\I60\API\Tickets\Create;
+namespace Liloi\I60\API\Quests\Create;
 
 use Liloi\I60\API\Method as SuperMethod;
-use Liloi\I60\Domain\Tickets\Manager as DiaryManager;
+use Liloi\I60\Domain\Quests\Manager as DiaryManager;
 
 class Method extends SuperMethod
 {
