@@ -1,7 +1,5 @@
 <style><?php echo file_get_contents(__DIR__ . '/Style.css'); ?></style>
 
-<a class="butn" href="javascript:void(0)" onclick="Requests.Quests.create();">Create new quest</a>
-
 <div id="quests-schedule">
 
     <style>
@@ -19,7 +17,10 @@
         }
     </style>
 
-    <h1>Quests for today</h1>
+    <div style="text-align: center;">
+        <h1>Quests for today</h1>
+        <a class="butn" href="javascript:void(0)" onclick="Requests.Quests.create();">Create new quest</a>
+    </div>
 
     <table style="width: 100%;">
         <tr style="text-align: left;">
