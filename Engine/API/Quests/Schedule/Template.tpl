@@ -22,8 +22,8 @@
     </style>
 
     <div style="text-align: center;">
-        <h1>Quests for today</h1>
         <a class="butn" href="javascript:void(0)" onclick="Requests.Quests.create();">Create new quest</a>
+        <h1>Quests for today</h1>
     </div>
 
     <table style="width: 100%;">
@@ -50,6 +50,37 @@
                 <a href="javascript:void(0)" class="butn" onclick="Requests.Quests.edit('<?php echo $entity->getKeyQuest(); ?>');">Edit</a>
             </td>
         </tr>
+        <?php endforeach; ?>
+    </table>
+
+    <div style="text-align: center;">
+        <h1>Schedule</h1>
+
+        <?php $hours = $schedule->toSchedule(); ?>
+    </div>
+
+    <style>
+        .quest
+        {
+            border: silver 1px solid;
+            margin-bottom: 5px;
+            padding: 5px;
+
+        }
+    </style>
+
+    <table style="width: 100%; border: silver 1px solid;">
+        <?php foreach($hours as $key => $entities): ?>
+            <tr style="vertical-align: top;">
+                <th style="width: 100px;"><?php echo $key; ?>:00</th>
+                <td>
+                    <?php foreach($entities as $entity): ?>
+                        <div class="quest">
+                            <?php echo $entity->getTitle(); ?>
+                        </div>
+                    <?php endforeach; ?>
+                </td>
+            </tr>
         <?php endforeach; ?>
     </table>
 

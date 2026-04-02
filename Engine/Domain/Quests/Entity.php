@@ -42,4 +42,9 @@ class Entity extends AbstractEntity
     {
         return sprintf('%07s', base_convert($this->getKeyQuest(), 10, 36));
     }
+
+    public function getHour(): int
+    {
+        return date('H', strtotime($this->getStart()));
+    }
 }

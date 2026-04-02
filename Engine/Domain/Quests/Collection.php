@@ -11,5 +11,21 @@ use Liloi\Tools\Collection as AbstractCollection;
  */
 class Collection extends AbstractCollection
 {
+    public function toSchedule(): array
+    {
+        $hours = [];
 
+        for($i=0;$i<24;$i++)
+        {
+            $hours[$i] = [];
+        }
+
+        /** @var Entity $entity */
+        foreach ($this as $entity)
+        {
+            $hours[$entity->getHour()][] = $entity;
+        }
+
+        return $hours;
+    }
 }
