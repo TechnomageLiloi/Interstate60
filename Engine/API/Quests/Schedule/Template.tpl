@@ -3,19 +3,19 @@
 <div id="quests-schedule">
 
     <style>
-        tr.to-do td
+        .to-do
         {
             background-color: #ececec;
         }
-        tr.in-hand td
+        .in-hand
         {
             background-color: #feffd3;
         }
-        tr.success td
+        .success
         {
             background-color: #d6ffd3;
         }
-        tr.failure td
+        .failure
         {
             background-color: #ffd3d3;
         }
@@ -75,7 +75,7 @@
                 <th style="width: 100px;"><?php echo $key; ?>:00</th>
                 <td>
                     <?php foreach($entities as $entity): ?>
-                        <div class="quest">
+                        <div class="quest <?php echo $entity->getClass(); ?>">
                             <a href="javascript:void(0)" class="butn" onclick="Requests.Quests.show('<?php echo $entity->getKeyQuest(); ?>');">Show</a>
                             <a href="javascript:void(0)" class="butn" onclick="Requests.Quests.edit('<?php echo $entity->getKeyQuest(); ?>');">Edit</a>
                             <?php echo $entity->getTitle(); ?>
