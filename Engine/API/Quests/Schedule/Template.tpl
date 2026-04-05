@@ -23,7 +23,7 @@
 
     <div style="text-align: center;">
         <a class="butn" href="javascript:void(0)" onclick="Requests.Quests.create();">Create new quest</a>
-        <h1>Quests for today</h1>
+        <h1>Quests</h1>
     </div>
 
     <table style="width: 100%;">
@@ -36,7 +36,7 @@
             <th>Data</th>
             <th style="text-align: right;">Actions</th>
         </tr>
-        <?php foreach($schedule as $key => $entity): ?>
+        <?php foreach($quests as $key => $entity): ?>
         <tr class="<?php echo $entity->getClass(); ?>">
             <td>#<?php echo $entity->getUID(); ?></td>
             <td><?php echo $entity->getStart(); ?></td>
@@ -56,7 +56,7 @@
     <div style="text-align: center;">
         <h1>Schedule</h1>
 
-        <?php $hours = $schedule->toSchedule(); ?>
+        <?php $hours = $schedule; ?>
     </div>
 
     <style>

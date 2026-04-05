@@ -59,8 +59,7 @@ class Manager extends DomainManager
         /** @var Entity $entity */
         foreach ($collection as $entity)
         {
-            $hour = date('H', strtotime($entity->getKeyQuest()));
-            $schedule[$hour][] = $entity;
+            $schedule[$entity->getHour()][] = $entity;
         }
 
         return $schedule;
