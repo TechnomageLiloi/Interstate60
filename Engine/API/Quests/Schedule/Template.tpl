@@ -32,7 +32,7 @@
             <th>Timestamp</th>
             <th>Mark</th>
             <th>Title</th>
-            <th>Start</th>
+            <th>Status</th>
             <th>Data</th>
             <th style="text-align: right;">Actions</th>
         </tr>
@@ -78,7 +78,11 @@
                         <div class="quest <?php echo $entity->getClass(); ?>">
                             <a href="javascript:void(0)" class="butn" onclick="Requests.Quests.show('<?php echo $entity->getKeyQuest(); ?>');">Show</a>
                             <a href="javascript:void(0)" class="butn" onclick="Requests.Quests.edit('<?php echo $entity->getKeyQuest(); ?>');">Edit</a>
+                            [<strong><?php echo $entity->getMark(); ?></strong>]
+                            &diams;
                             <?php echo $entity->getTitle(); ?>
+                            &diams;
+                            <?php echo $entity->getData(); ?>
                         </div>
                     <?php endforeach; ?>
                 </td>
