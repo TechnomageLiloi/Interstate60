@@ -76,6 +76,8 @@
                 <td>
                     <?php foreach($entities as $entity): ?>
                         <div class="quest">
+                            <a href="javascript:void(0)" class="butn" onclick="Requests.Quests.show('<?php echo $entity->getKeyQuest(); ?>');">Show</a>
+                            <a href="javascript:void(0)" class="butn" onclick="Requests.Quests.edit('<?php echo $entity->getKeyQuest(); ?>');">Edit</a>
                             <?php echo $entity->getTitle(); ?>
                         </div>
                     <?php endforeach; ?>
