@@ -47,14 +47,26 @@ class Manager extends DomainManager
      */
     public static function loadSchedule(): array
     {
+        $name = self::getTableName();
+
+        $rows = self::getAdapter()->getArray(sprintf(
+            'select * from %s where status in ("%s", "%s", "%s") and start between "%s 00:00:00" and "%s 23:59:59" order by start desc;',
+            $name, Statuses::SUCCESS, Statuses::IN_HAND, Statuses::FAILURE, date('Y-m-d'), date('Y-m-d')
+        ));
+
+        $collection = new Collection();
+
+        foreach($rows as $row)
+        {
+            $collection[(int)$row['key_quest']] = Entity::create($row);
+        }
+
         $schedule = [];
 
         for($i = 0; $i < 24; $i++)
         {
             $schedule[$i] = [];
         }
-
-        $collection = self::loadCollection();
 
         /** @var Entity $entity */
         foreach ($collection as $entity)
