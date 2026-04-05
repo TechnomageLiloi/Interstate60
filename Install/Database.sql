@@ -36,7 +36,7 @@ CREATE TABLE `i60_quests` (
   `title` varchar(300) NOT NULL,
   `status` tinyint unsigned NOT NULL DEFAULT '1',
   `data` text NOT NULL,
-  `mark` tinyint unsigned NOT NULL DEFAULT '1',
+  `mark` tinyint signed NOT NULL DEFAULT '1',
   PRIMARY KEY (`key_quest`)
 ) ENGINE=InnoDB DEFAULT CHARSET=cp1251;
 /*!40101 SET character_set_client = @saved_cs_client */;
