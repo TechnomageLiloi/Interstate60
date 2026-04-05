@@ -7,7 +7,7 @@ use Liloi\I60\Domain\Manager as DomainManager;
 class Manager extends DomainManager
 {
     /**
-     * Get table name.
+     * Gets table name.
      *
      * @return string
      */
@@ -16,13 +16,18 @@ class Manager extends DomainManager
         return self::getTablePrefix() . 'quests';
     }
 
+    /**
+     * Gets undone quests collection.
+     *
+     * @return Collection
+     */
     public static function loadCollection(): Collection
     {
         $name = self::getTableName();
 
         $rows = self::getAdapter()->getArray(sprintf(
-            "select * from %s where start between '%s 00:00:00' and '%s 23:59:59' order by start desc;",
-            $name, date('Y-m-d'), date('Y-m-d')
+            'select * from %s where status in ("%s", "%s") order by start desc;',
+            $name, Statuses::TODO, Statuses::IN_HAND
         ));
 
         $collection = new Collection();
@@ -35,6 +40,11 @@ class Manager extends DomainManager
         return $collection;
     }
 
+    /**
+     * Gets schedule format.
+     *
+     * @return array
+     */
     public static function loadSchedule(): array
     {
         $schedule = [];

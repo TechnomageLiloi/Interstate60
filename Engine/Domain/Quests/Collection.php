@@ -11,6 +11,11 @@ use Liloi\Tools\Collection as AbstractCollection;
  */
 class Collection extends AbstractCollection
 {
+    /**
+     * Gets schedule format.
+     *
+     * @return array
+     */
     public function toSchedule(): array
     {
         $hours = [];
